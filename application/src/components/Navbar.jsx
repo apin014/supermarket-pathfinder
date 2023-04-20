@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {React, useEffect} from 'react';
 import WebFont from 'webfontloader';
+import './Components.css';
 
 function MyNavbar() {
     useEffect(() => {
@@ -21,8 +22,12 @@ function MyNavbar() {
             boxShadow: '0px 8px 8px -6px #5f4698'
         },
         text:{
+            fontFamily:'Barlow',
+            fontWeight:'Bold'
+        },
+        title: {
             fontFamily:'Kanit',
-            fontWeight:'Bolder'
+            fontWeight: 'Bolder'
         },
         image:{
             height:'64px',
@@ -31,10 +36,11 @@ function MyNavbar() {
     }
 
     return (
-        <Navbar style={styles.bar} expand="lg">
+        <Navbar style={styles.bar} expand="lg" sticky="top" className='navbar'>
             <Container fluid>
                 <Navbar.Brand href="/">
                     <img src={require('./sp_logo_small.png')} alt='Pathfinder' style={styles.image} />
+                    <span style={styles.title}>Supermarket Pathfinder</span>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar-example" />
                 <Navbar.Collapse id="navbar-example">
@@ -45,18 +51,18 @@ function MyNavbar() {
                     >Home</Nav.Link>
                     <NavDropdown
                     id="nav-dropdown-example"
-                    title="Dropdown"
+                    title="Select Starting Point"
                     menuVariant="light"
                     style={styles.text}
                     >
                         <NavDropdown.Item href="#action/3.1">
-                        Action
+                        Location A
                         </NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">
-                        Another action
+                        Location B
                         </NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">
-                        Something
+                        Location C
                         </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
