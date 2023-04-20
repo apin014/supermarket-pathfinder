@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <MyNavbar />
-      <Grid size={40} />
+      <Grid row={40} column={50} />
     </div>
   );
 }
