@@ -1,12 +1,12 @@
-import Grid from './components/Grid';
 import MyNavbar from './components/Navbar';
+import FloorPlanComponent from './components/FloorPlan';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <MyNavbar />
-      <Grid row={40} column={50} />
+      <FloorPlanComponent />
     </div>
   );
 }
