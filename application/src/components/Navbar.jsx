@@ -19,19 +19,19 @@ function MyNavbar() {
     const styles = {
         bar:{
             backgroundColor:'#77B178',
-            boxShadow: '0px 8px 8px -6px #5f4698'
+            boxShadow: '0px 8px 8px -6px grey'
         },
         text:{
             fontFamily:'Barlow',
-            fontWeight:'Bold'
+            fontWeight:'Bolder'
         },
         title: {
             fontFamily:'Kanit',
             fontWeight: 'Bolder'
         },
         image:{
-            height:'64px',
-            width:'64px'
+            height:'3rem',
+            width:'3rem'
         }
     }
 
