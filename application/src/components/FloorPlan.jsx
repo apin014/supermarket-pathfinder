@@ -7,16 +7,17 @@ import { motion } from "framer-motion";
 import "./Components.css";
 
 function FloorPlanComponent() {
-    const startPoint = { x: 0, y: 0 };
-    const endPoint = { x: 700, y: 50 };
+    const startPoint = { x: 1068, y: 329 };
+    const endPoint = { x: 226, y: 720 };
 
     const pathRef = React.useRef(null);
+    const floorPlanRef = React.useRef(null);
 
     const handleResize = () => {
-        const containerWidth = pathRef.current.parentElement.clientWidth;
-        const containerHeight = pathRef.current.parentElement.clientHeight;
+        const floorPlanWidth = floorPlanRef.current.offsetWidth;
+        const floorPlanHeight = floorPlanRef.current.offsetHeight;
 
-        pathRef.current.setAttribute('viewBox', `0 0 ${containerWidth} ${containerHeight}`);
+        pathRef.current.setAttribute('viewBox', `0 0 ${floorPlanWidth} ${floorPlanHeight}`);
     }
 
     React.useEffect(() => {
@@ -49,27 +50,29 @@ function FloorPlanComponent() {
         },
     };
     return (
-        <Container className="svg-container mw-100 p-1" style={{position:'relative'}}>
-            <motion.svg ref={pathRef} style={{ position: "absolute", top: 0, left: 0, zIndex: 2, width:"100%", height:"100%", overflow:'visible'}}>
-                <motion.path
-                    d={`M${startPoint.x} ${startPoint.y} L${startPoint.x} ${startPoint.y}`}
-                    fill="transparent"
-                    stroke="red"
-                    strokeWidth="5"
-                    animate="animate"
-                    variants={pathVariants}
-                />
-            </motion.svg>
-            <div style={{position:'relative', zIndex:1}}>
-                <FloorPlan className="svg"></FloorPlan>
-            </div>
-            <Fab
-            aria-label="Widgets"
-            sx={{ position: 'fixed', bottom: '16px', right: '16px', backgroundColor: '#ffaf5a', width: '4.5rem', height: '4.5rem' }}
-            >
-                <SearchIcon sx={{color: '#d75028', fontSize: '2.5rem'}} />
-            </Fab>
-        </Container>
+        <div className="canvas">
+            <Container className="svg-container mw-100 p-1" style={{position:'relative', zIndex:1}}>
+                <motion.svg ref={pathRef} style={{ position: "absolute", top: 0, left: 0, zIndex: 3, width:"100%", height:"100%", overflow:'visible'}}>
+                    <motion.path
+                        d={`M${startPoint.x} ${startPoint.y} L${startPoint.x} ${startPoint.y}`}
+                        fill="transparent"
+                        stroke="red"
+                        strokeWidth="5"
+                        animate="animate"
+                        variants={pathVariants}
+                    />
+                </motion.svg>
+                <div style={{position:'relative', zIndex:2}} ref={floorPlanRef}>
+                    <FloorPlan className="svg"></FloorPlan>
+                </div>
+                <Fab
+                aria-label="Widgets"
+                sx={{ position: 'fixed', bottom: '16px', right: '16px', backgroundColor: '#ffaf5a', width: '4.5rem', height: '4.5rem' }}
+                >
+                    <SearchIcon sx={{color: '#d75028', fontSize: '2.5rem'}} />
+                </Fab>
+            </Container>
+        </div>
     )
 }
 

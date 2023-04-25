@@ -28,20 +28,26 @@
 
 .svg-container {
   background-color: lightyellow;
-  width: 200vw;
-  height: auto;
-  top: 4.5rem;
+  width: fit-content;
+  height: fit-content;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  border: 100vw lightyellow;
   overflow: auto;
   touch-action: auto;
 }
 
 .svg {
   width: auto;
-  height: 100%;
+  height: auto;
   padding: 0.5rem;
   position: relative;
-  z-index: 2;
+}
+
+.canvas {
+  width: 100vw;
+  height: auto;
+  background-color: lightyellow;
 }
