@@ -1,9 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import {ReactComponent as FloorPlan} from "../resources/Sample_1.svg";
-import { Fab } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
 import { motion } from "framer-motion";
+import FAB from "./FAB";
 import "./Components.css";
 
 function FloorPlanComponent() {
@@ -42,10 +41,11 @@ function FloorPlanComponent() {
         d: `M${startPoint.x} ${startPoint.y} L${endPoint.x} ${endPoint.y}`,
         stroke: "blue",
         transition: {
-            duration: 1,
+            duration: 3,
             ease: "easeInOut",
             repeat: Infinity, // Set repeat property to Infinity for infinite loop
-            repeatType: "reverse", // Set repeatType property to "loop" for infinite loop
+            repeatType: "loop", // Set repeatType property to "loop" for infinite loop
+            repeatDelay: 1,
         },
         },
     };
@@ -58,6 +58,7 @@ function FloorPlanComponent() {
                         fill="transparent"
                         stroke="red"
                         strokeWidth="5"
+                        strokeDasharray="8"
                         animate="animate"
                         variants={pathVariants}
                     />
@@ -65,12 +66,7 @@ function FloorPlanComponent() {
                 <div style={{position:'relative', zIndex:2}} ref={floorPlanRef}>
                     <FloorPlan className="svg"></FloorPlan>
                 </div>
-                <Fab
-                aria-label="Widgets"
-                sx={{ position: 'fixed', bottom: '16px', right: '16px', backgroundColor: '#ffaf5a', width: '4.5rem', height: '4.5rem' }}
-                >
-                    <SearchIcon sx={{color: '#d75028', fontSize: '2.5rem'}} />
-                </Fab>
+                <FAB/>
             </Container>
         </div>
     )
