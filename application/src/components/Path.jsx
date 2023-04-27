@@ -1,39 +1,38 @@
 import React from "react";
 import { motion } from "framer-motion";
+import './Components.css'
 
-const Path = () => {
-  const startPoint = { x: 10, y: 50 };
-  const endPoint = { x: 100, y: 50 };
+const Path = ({ coordinates }) => {
+
+  const path = "M" + coordinates.map((c) => c.join(",")).join("L");
 
   const pathVariants = {
     initial: {
-      d: `M${startPoint.x} ${startPoint.y} L${startPoint.x} ${startPoint.y}`,
-      stroke: "red",
+      pathLength: 0,
     },
     animate: {
-      d: `M${startPoint.x} ${startPoint.y} L${endPoint.x} ${endPoint.y}`,
-      stroke: "blue",
+      pathLength: 1,
       transition: {
-        duration: 1,
+        duration: 2,
         ease: "easeInOut",
         repeat: Infinity, // Set repeat property to Infinity for infinite loop
         repeatType: "reverse", // Set repeatType property to "loop" for infinite loop
       },
-    },
-  };
+    }
+  }
 
   return (
-    <svg width="1080" height="1080">
-      <motion.path
-        d={`M${startPoint.x} ${startPoint.y} L${startPoint.x} ${startPoint.y}`}
-        fill="transparent"
-        stroke="red"
-        strokeWidth="5"
-        animate="animate"
-        variants={pathVariants}
-        style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}
-      />
-    </svg>
+    <motion.path
+      id="my-path"
+      d={path}
+      stroke="black"
+      strokeWidth="4"
+      fill="transparent"
+      initial={pathVariants.initial}
+      animate={pathVariants.animate}
+      strokeLinecap="round"
+      transition={pathVariants.animate.transition}
+    />
   );
 };
 
