@@ -1,6 +1,7 @@
 import React from "react";
 import { Fab } from "@mui/material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from "framer-motion";
 import "./Components.css";
 
@@ -11,9 +12,9 @@ function FAB() {
     React.useEffect(() => {
         // Event listener for clicks outside of the FAB
         const handleOutsideClick = (event) => {
-        if (!fabRef.current.contains(event.target)) {
-            setIsClicked(false);
-        }
+            if (!fabRef.current.contains(event.target)) {
+                setIsClicked(false);
+            }
         };
 
         // Add event listener on mount
@@ -26,8 +27,12 @@ function FAB() {
     }, []);
 
     const handleFabClick = () => {
-        setIsClicked(true);
+        setIsClicked(!isClicked);
     };
+
+    const handleOptionClick = () => {
+        
+    }
 
     // Example data structure for clickable elements
     const clickableElements = [
@@ -75,6 +80,7 @@ function FAB() {
                             </motion.div>
                             <motion.div
                             className='option'
+                            onClick={handleOptionClick}
                             initial={{ opacity: 0, scale: 0 }} // Set initial scale to 0 to make elements appear one at a time
                             animate={{ opacity: 1, scale: 1 }} // Animate scale to 1 for appearing effect
                             exit={{ opacity:0, scale: 0, transition: {delay: (clickableElements.length-element.id) * 0.07}, type: 'spring', stiffness: 175, damping: 10 }}
@@ -92,11 +98,12 @@ function FAB() {
             </AnimatePresence>
         <Fab
             aria-label="options"
-            sx={{ position: 'fixed', bottom: '16px', right: '16px', backgroundColor: '#ffaf5a', width: '4rem', height: '4rem' }}
+            sx={{ position: 'fixed', bottom: '16px', right: '16px', width: '4rem', height: '4rem', '&.MuiFab-root':{backgroundColor: isClicked ? '#d75028' : '#ffaf5a'}}}
             onClick={handleFabClick}
             ref={fabRef}
         >
-            <ShoppingBasketIcon sx={{color:'black'}}/>
+            {isClicked ? <CloseIcon sx={{color: 'black'}} />: <ShoppingBasketIcon sx={{color:'black'}}/>}
+            
         </Fab>
         </div>
     );
