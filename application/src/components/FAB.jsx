@@ -74,19 +74,13 @@ function FAB() {
                                 {element.label}
                             </motion.div>
                             <motion.div
-                            style={{
-                                width: '3.5rem',
-                                height: '3.5rem',
-                                borderRadius: '50%',
-                                backgroundColor: element.backgroundColor,
-                                marginBottom: '8px',
-                            }}
+                            className='option'
                             initial={{ opacity: 0, scale: 0 }} // Set initial scale to 0 to make elements appear one at a time
                             animate={{ opacity: 1, scale: 1 }} // Animate scale to 1 for appearing effect
                             exit={{ opacity:0, scale: 0, transition: {delay: (clickableElements.length-element.id) * 0.07}, type: 'spring', stiffness: 175, damping: 10 }}
                             transition={{ delay: (element.id) * 0.07, type: 'spring', stiffness: 175, damping: 12}} // Set transition duration for the appearing effect
                             whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            whileTap={{ scale: 0.9, backgroundColor: '#595959', transition: {duration: 0.1} }}
                             >
                                 <ShoppingBasketIcon sx={{marginTop:'16px'}} />
                             </motion.div>
