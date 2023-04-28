@@ -16,7 +16,8 @@ const Path = ({ coordinates }) => {
         duration: 2,
         ease: "easeInOut",
         repeat: Infinity, // Set repeat property to Infinity for infinite loop
-        repeatType: "reverse", // Set repeatType property to "loop" for infinite loop
+        repeatType: "mirror", // Set repeatType property to "loop" for infinite loop
+        repeatDelay: 1
       },
     }
   }
