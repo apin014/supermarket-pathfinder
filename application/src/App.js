@@ -1,13 +1,12 @@
-import MyNavbar from './components/Navbar';
-import FloorPlanComponent from './components/FloorPlan';
+import { BrowserRouter as Router } from 'react-router-dom';
+import MyRoutes from './Routes';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <MyNavbar />
-      <FloorPlanComponent />
-    </div>
+    <Router>
+      <MyRoutes />
+    </Router>
   );
 }
 
