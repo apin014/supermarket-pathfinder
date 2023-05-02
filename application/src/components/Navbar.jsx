@@ -46,7 +46,7 @@ function MyNavbar() {
                 <Navbar.Collapse id="navbar-example">
                 <Nav>
                     <Nav.Link
-                    href='#home'
+                    href='/'
                     style={styles.text}
                     >Home</Nav.Link>
                     <NavDropdown
@@ -55,13 +55,13 @@ function MyNavbar() {
                     menuVariant="light"
                     style={styles.text}
                     >
-                        <NavDropdown.Item href="#action/3.1">
+                        <NavDropdown.Item href={`/pathfinder/${1}`}>
                         Location A
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">
+                        <NavDropdown.Item href={`/pathfinder/${2}`}>
                         Location B
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">
+                        <NavDropdown.Item href={`/pathfinder/${3}`}>
                         Location C
                         </NavDropdown.Item>
                     </NavDropdown>
