@@ -4,7 +4,7 @@ import './Components.css'
 
 const Path = ({ coordinates }) => {
 
-  const path = "M" + coordinates.map((c) => c.join(",")).join("L");
+  const path = "M" + coordinates?.map((c) => c.join(",")).join("L");
 
   const pathVariants = {
     initial: {
@@ -33,6 +33,7 @@ const Path = ({ coordinates }) => {
       animate={pathVariants.animate}
       strokeLinecap="round"
       transition={pathVariants.animate.transition}
+      // style={{transform: 'scale(1.36)'}}
     />
   );
 };

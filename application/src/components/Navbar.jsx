@@ -19,7 +19,7 @@ function MyNavbar() {
     const styles = {
         bar:{
             backgroundColor:'#77B178',
-            boxShadow: '0px 8px 8px -6px grey'
+            boxShadow: '0px 8px 8px -6px grey',
         },
         text:{
             fontFamily:'Barlow',
@@ -55,14 +55,11 @@ function MyNavbar() {
                     menuVariant="light"
                     style={styles.text}
                     >
-                        <NavDropdown.Item href={`/pathfinder/${1}`}>
+                        <NavDropdown.Item href={`/pathfinder/${'A'}`}>
                         Location A
                         </NavDropdown.Item>
-                        <NavDropdown.Item href={`/pathfinder/${2}`}>
+                        <NavDropdown.Item href={`/pathfinder/${'B'}`}>
                         Location B
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href={`/pathfinder/${3}`}>
-                        Location C
                         </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>

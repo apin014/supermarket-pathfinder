@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from "framer-motion";
 import "./Components.css";
 
-function FAB() {
+function FAB(props) {
     const [isClicked, setIsClicked] = React.useState(false);
     const fabRef = React.useRef(null); // Ref to FAB element
 
@@ -30,9 +30,9 @@ function FAB() {
         setIsClicked(!isClicked);
     };
 
-    const handleOptionClick = () => {
+    // const handleOptionClick = () => {
         
-    }
+    // }
 
     // Example data structure for clickable elements
     const clickableElements = [
@@ -80,7 +80,7 @@ function FAB() {
                             </motion.div>
                             <motion.div
                             className='option'
-                            onClick={handleOptionClick}
+                            onClick={props.clickAction}
                             initial={{ opacity: 0, scale: 0 }} // Set initial scale to 0 to make elements appear one at a time
                             animate={{ opacity: 1, scale: 1 }} // Animate scale to 1 for appearing effect
                             exit={{ opacity:0, scale: 0, transition: {delay: (clickableElements.length-element.id) * 0.07}, type: 'spring', stiffness: 175, damping: 10 }}

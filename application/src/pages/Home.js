@@ -24,9 +24,8 @@ const Home = () => {
                             Select your starting location
                         </Dropdown.Toggle>
                         <Dropdown.Menu style={{fontFamily: 'Barlow', backgroundColor: 'lightyellow'}}>
-                            <Dropdown.Item href={`pathfinder/${1}`}>Location A</Dropdown.Item>
-                            <Dropdown.Item href={`pathfinder/${2}`}>Location B</Dropdown.Item>
-                            <Dropdown.Item href={`pathfinder/${3}`}>Location C</Dropdown.Item>
+                            <Dropdown.Item href={`pathfinder/${'A'}`}>Location A</Dropdown.Item>
+                            <Dropdown.Item href={`pathfinder/${'B'}`}>Location B</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Row>
