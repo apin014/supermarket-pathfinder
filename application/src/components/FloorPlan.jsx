@@ -29,8 +29,8 @@ function FloorPlanComponent(props) {
         }
     }, [hasRequested, props.loc, query]);
 
-    const makeRequest = () => {
-        setQuery('pharmacy');
+    const makeRequest = (query) => {
+        setQuery(query);
         setHasRequested(true);
     }
 
