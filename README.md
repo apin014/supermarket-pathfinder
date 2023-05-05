@@ -1,6 +1,8 @@
 # supermarket-pathfinder
 a simple pathfinder/wayfinder web app used within a supermarket
 <br>
+<br>
+---
 To use this app, clone this repository using this command:
 
 ```
@@ -28,6 +30,7 @@ npm start
 <br>
 
 A better, more advisable way to serve the app is by building a production server
+<br>
 To do that, we can start by running this command:
 
 ```
@@ -35,6 +38,7 @@ npm run build
 ```
 
 This will compile a production build of the app and a new directory named `build` can be seen under the `application` directory
+<br>
 Then we can install a production server using this command:
 
 ```
@@ -42,6 +46,7 @@ npm install -g serve
 ```
 
 This will install a production server globally on your machine
+<br>
 Finally, to serve the app, we use this command:
 
 ```
