@@ -9,11 +9,15 @@ const Path = ({ coordinates }) => {
   const pathVariants = {
     initial: {
       pathLength: 0,
+      pathSpacing: 0.1,
+      // strokeDasharray: '8, 3'
     },
     animate: {
       pathLength: 1,
+      // strokeDasharray: '8, 3',
       transition: {
-        duration: 2,
+        duration: 3,
+        pathSpacing: 0.1,
         ease: "easeInOut",
         repeat: Infinity, // Set repeat property to Infinity for infinite loop
         repeatType: "mirror", // Set repeatType property to "loop" for infinite loop
@@ -32,6 +36,7 @@ const Path = ({ coordinates }) => {
       initial={pathVariants.initial}
       animate={pathVariants.animate}
       strokeLinecap="round"
+      strokeDasharray='8, 3'
       transition={pathVariants.animate.transition}
       // style={{transform: 'scale(1.36)'}}
     />

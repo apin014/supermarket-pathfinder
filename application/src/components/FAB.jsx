@@ -37,12 +37,6 @@ function FAB(props) {
     const handleFabClick = () => {
         setIsClicked(!isClicked);
     };
-
-    // const handleOptionClick = () => {
-        
-    // }
-
-    // Example data structure for clickable elements
     const clickableElements = [
         {id: 1, label: 'Bakery', backgroundColor: '#ff604a' },
         {id: 2, label: 'Prepared Foods', backgroundColor: '#31c62e'},
