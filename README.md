@@ -17,17 +17,3 @@ Finally, you can start a development server using the command:
 ```
 npm start
 ```
-<br>
-A more advisable way to serve the app is by creating a production build, run this command:
-```
-npm run build
-```
-This command will also create a `build` directory inside the `application` directory
-To serve it, install the `serve` production server globally on your machine:
-```
-npm install -g serve
-```
-Finally, execute this command to serve the app:
-```
-serve -s build
-```
