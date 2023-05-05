@@ -10,12 +10,10 @@ const Path = ({ coordinates }) => {
     initial: {
       pathLength: 0,
       pathSpacing: 0.08,
-      // strokeDasharray: '8, 3'
     },
     animate: {
       pathLength: 1,
       pathSpacing: 0.08,
-      // strokeDasharray: '8, 3',
       transition: {
         duration: 3,
         ease: "easeInOut",

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { ReactComponent as FloorPlan } from '../resources/Denah.svg'
+import { ReactComponent as FloorPlanA } from '../resources/DenahLocA.svg';
+import { ReactComponent as FloorPlanB } from '../resources/DenahLocB.svg'; 
 import { motion } from "framer-motion";
 import FAB from "./FAB";
 import Path from "./Path";
@@ -34,24 +35,20 @@ function FloorPlanComponent(props) {
         setHasRequested(true);
     }
 
-    const pathRef = React.useRef(null);
-    const floorPlanRef = React.useRef(null);
-
     return (
         <div className="canvas">
             <Container className="svg-container mw-100 p-0" style={{position:'relative', zIndex:1}}>
-                <motion.svg 
-                ref={pathRef} 
+                <motion.svg
                 style={{ position: "absolute", top: 0, left: 0, zIndex: 3, width:"100%", height:"100%", overflow:'visible'}}
                 >
                     {!isLoading && <Path coordinates={data.path} />}
                 </motion.svg>
                 <div style={{position:'relative', zIndex:2}} >
                     {props.loc === 'A' && 
-                    <FloorPlan className="svg" ref={floorPlanRef} />
+                    <FloorPlanA className="svg" />
                     }
                     {props.loc === 'B' && 
-                    <FloorPlan className="svg" ref={floorPlanRef} />
+                    <FloorPlanB className="svg" />
                     }
                 </div>
                 <FAB clickAction={makeRequest} />
