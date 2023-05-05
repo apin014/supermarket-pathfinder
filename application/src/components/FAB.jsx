@@ -3,6 +3,7 @@ import { Fab } from "@mui/material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from "framer-motion";
+import debounce from 'lodash.debounce';
 import "./Components.css";
 
 function FAB(props) {
@@ -34,9 +35,14 @@ function FAB(props) {
         }
     }, [isClicked]);
 
-    const handleFabClick = () => {
+    const handleFabClick = React.useCallback(() => {
         setIsClicked(!isClicked);
-    };
+    }, [isClicked]);
+
+    const debouncedFabHandler = React.useMemo(
+        () => debounce(handleFabClick, 300), [handleFabClick]
+    );
+
     const clickableElements = [
         {id: 1, label: 'Bakery', backgroundColor: '#ff604a' },
         {id: 2, label: 'Prepared Foods', backgroundColor: '#31c62e'},
@@ -179,10 +185,11 @@ function FAB(props) {
         <Fab
             aria-label="options"
             sx={{ position: 'fixed', bottom: '16px', right: '16px', width: '4rem', height: '4rem', '&.MuiFab-root':{backgroundColor: isClicked ? '#d75028' : '#ffaf5a'}}}
-            onClick={handleFabClick}
+            onClick={debouncedFabHandler}
             ref={fabRef}
         >
             {isClicked ? <CloseIcon sx={{color: 'black'}} />: <ShoppingBasketIcon sx={{color:'black'}}/>}
+            {console.log(isClicked)}
             
         </Fab>
         </div>
