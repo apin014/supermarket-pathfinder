@@ -14,7 +14,7 @@ function MyNavbar() {
             families: ['Kanit', 'Barlow']
           }
         });
-      }, []);
+    }, []);
 
     const styles = {
         bar:{

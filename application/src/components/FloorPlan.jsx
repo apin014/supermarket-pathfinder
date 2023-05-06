@@ -12,6 +12,7 @@ function FloorPlanComponent(props) {
     const [query, setQuery] = React.useState('');
     const [isLoading, setIsLoading] = React.useState(false);
     const [hasRequested, setHasRequested] = React.useState(false);
+    const containerRef = React.useRef(null);
 
     const fetchData = (loc, query) => {
         setIsLoading(true);
@@ -23,6 +24,14 @@ function FloorPlanComponent(props) {
             console.log(data);
         });
     };
+
+    React.useEffect(() => {
+        if (containerRef.current) {
+            props.loc === 'A' ? 
+            containerRef.current.scrollLeft = containerRef.current.scrollWidth - containerRef.current.clientWidth 
+            : containerRef.current.scrollLeft = (containerRef.current.scrollWidth - containerRef.current.clientWidth)/2;
+        }
+    })
 
     React.useEffect(() => {
         if (hasRequested) {
@@ -37,7 +46,7 @@ function FloorPlanComponent(props) {
 
     return (
         <div className="canvas">
-            <Container className="svg-container mw-100 p-0" style={{position:'relative', zIndex:1}}>
+            <Container className="svg-container mw-100 p-0" style={{position:'relative', zIndex:1}} ref={containerRef} >
                 <motion.svg
                 style={{ position: "absolute", top: 0, left: 0, zIndex: 3, width:"100%", height:"100%", overflow:'visible'}}
                 >

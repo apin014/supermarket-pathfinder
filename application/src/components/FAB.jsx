@@ -4,12 +4,21 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from "framer-motion";
 import debounce from 'lodash.debounce';
+import WebFont from "webfontloader";
 import "./Components.css";
 
 function FAB(props) {
     const [isClicked, setIsClicked] = React.useState(false);
     const fabRef = React.useRef(null); // Ref to FAB element
     const scrollRef = React.useRef(null);
+
+    React.useEffect(() => {
+        WebFont.load({
+          google: {
+            families: ['Kanit', 'Barlow']
+          }
+        });
+    }, []);
 
     React.useEffect(() => {
         // Event listener for clicks outside of the FAB
@@ -150,11 +159,13 @@ function FAB(props) {
                             height: 'fit-content',
                             alignItems: 'center',
                             justifyContent: 'right',
-                        }}>
+                        }}
+                        >
                             <motion.div 
                             style={{
                                 fontSize: '0.75rem',
                                 fontWeight: 'bold',
+                                fontFamily: 'Barlow',
                             }}
                             initial={{ opacity: 0, x: '100%' }} // Set initial scale to 0 to make elements appear one at a time
                             animate={{ opacity: 1, x: '0%' }} // Animate scale to 1 for appearing effect
